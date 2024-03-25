@@ -29,6 +29,41 @@
             key-positions = <0 1>;
             bindings = <&kp ESC>;
         };
+
+        l_br {
+            bindings = <&kp LEFT_PARENTHESIS>;
+            key-positions = <15 16>;
+            layers = <1>;
+        };
+
+        eq {
+            bindings = <&kp EQUAL>;
+            key-positions = <26 27>;
+            layers = <1>;
+        };
+
+        l_sq_br {
+            bindings = <&kp LEFT_BRACKET>;
+            key-positions = <5 6>;
+            layers = <1>;
+        };
+
+        r_br {
+            bindings = <&kp RIGHT_PARENTHESIS>;
+            key-positions = <18 19>;
+            layers = <1>;
+        };
+
+        f_for {
+            bindings = <&kp F4>;
+            key-positions = <9 9 19>;
+        };
+
+        r_sq_br {
+            bindings = <&kp RIGHT_BRACKET>;
+            key-positions = <9 8>;
+            layers = <1>;
+        };
     };
 
     behaviors {
@@ -58,6 +93,20 @@
             require-prior-idle-ms = <125>;
             bindings = <&kp>, <&kp>;
         };
+
+        td_dots: td_dots {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_DOTS";
+            #binding-cells = <0>;
+            bindings = <&kp KP_DOT>, <&kp SEMICOLON>, <&kp LS(SEMICOLON)>;
+        };
+
+        td_sm: td_sm {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_SM";
+            #binding-cells = <0>;
+            bindings = <&kp K_MUTE>, <&kp LC(LS(A))>;
+        };
     };
 
     keymap {
@@ -66,29 +115,29 @@
         base {
             label = "BASE";
             bindings = <
-                 &kp Q        &kp W        &kp E         &kp R         &kp T        &kp Y        &kp U            &kp I         &kp O        &kp P
-                 &hrm LGUI A  &hrm LALT S  &hrm LCTRL D  &hrm LSHFT F  &kp G        &kp H        &hrm RSHFT J     &hrm RCTRL K  &hrm RALT L  &hrm RGUI SEMICOLON
-&kh_hs_tapdance  &kp Z        &kp X        &kp C         &kp V         &kp B        &kp N        &kp M            &kp COMMA     &kp DOT      &kp FSLH             &kp SQT
-                                           &lt 4 ESCAPE  &lt 1 SPACE   &lt 2 TAB    &lt 3 ENTER  &lt 1 BACKSPACE  &lt 4 DELETE
+                 &kp Q        &kp W        &kp E         &kp R         &kp T          &kp Y      &kp U            &kp I         &kp O        &kp P
+                 &hrm LGUI A  &hrm LALT S  &hrm LCTRL D  &hrm LSHFT F  &kp G          &kp H      &hrm RSHFT J     &hrm RCTRL K  &hrm RALT L  &hrm RGUI SEMICOLON
+&kh_hs_tapdance  &kp Z        &kp X        &kp C         &kp V         &kp B          &kp N      &kp M            &kp COMMA     &kp DOT      &kp FSLH             &kp SQT
+                                           &lt 4 TAB     &lt 1 SPACE   &lt 2 ENTER    &lt 3 ESC  &lt 1 BACKSPACE  &lt 4 DELETE
             >;
         };
 
         math {
             label = "MATH";
             bindings = <
-           &kp DOT    &kp N7        &kp N8          &kp N9        &kp ASTERISK    &trans  &trans           &trans     &trans         &trans
-           &kp N0     &kp NUMBER_4  &kp N5          &kp N6        &kp MINUS       &trans  &kp RIGHT_SHIFT  &kp RCTRL  &kp RIGHT_ALT  &kp RIGHT_GUI
-&kp EQUAL  &kp SLASH  &kp NUMBER_1  &kp NUMBER_2    &kp NUMBER_3  &kp PLUS        &trans  &trans           &trans     &trans         &trans         &trans
-                                    &kp LEFT_SHIFT  &trans        &trans          &trans  &trans           &trans
+        &trans        &trans        &trans            &trans          &trans    &kp KP_MINUS     &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp KP_SLASH
+        &kp LEFT_GUI  &kp LEFT_ALT  &kp LEFT_CONTROL  &kp LEFT_SHIFT  &trans    &kp KP_PLUS      &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp KP_MULTIPLY
+&trans  &trans        &trans        &trans            &trans          &trans    &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &td_dots         &kp EQUAL
+                                    &trans            &trans          &trans    &trans           &trans           &trans
             >;
         };
 
         navi {
             bindings = <
-        &trans    &trans    &trans     &trans          &trans    &kp HOME  &kp PAGE_DOWN  &kp PG_UP   &kp END    &trans
-        &kp LGUI  &kp LALT  &kp LCTRL  &kp LEFT_SHIFT  &trans    &kp LEFT  &kp DOWN       &kp UP      &kp RIGHT  &kp K_COPY
-&trans  &trans    &trans    &trans     &trans          &trans    &trans    &kp K_UNDO     &kp K_REDO  &trans     &kp K_CUT   &trans
-                            &trans     &trans          &trans    &trans    &trans         &trans
+       &kp CAPSLOCK  &none            &none            &none           &none     &kp C_VOLUME_UP    &kp HOME          &kp PAGE_DOWN     &kp PG_UP             &kp END
+       &kp LGUI      &kp LALT         &kp LCTRL        &kp LEFT_SHIFT  &none     &td_sm             &kp LEFT_ARROW    &kp DOWN          &kp UP_ARROW          &kp RIGHT
+&none  &none         &kp PRINTSCREEN  &kp PAUSE_BREAK  &none           &none     &kp C_VOLUME_DOWN  &kp LC(LS(LEFT))  &kp LC(LS(DOWN))  &kp LC(LS(UP_ARROW))  &kp LC(LS(RIGHT))  &trans
+                                      &trans           &trans          &trans    &trans             &trans            &trans
             >;
         };
 

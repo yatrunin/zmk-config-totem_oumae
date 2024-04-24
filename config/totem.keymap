@@ -33,36 +33,37 @@
         l_br {
             bindings = <&kp LEFT_PARENTHESIS>;
             key-positions = <15 16>;
-            layers = <3>;
+            layers = <1>;
         };
 
         eq {
             bindings = <&kp EQUAL>;
             key-positions = <26 27>;
-            layers = <3>;
+            layers = <1>;
         };
 
         l_sq_br {
             bindings = <&kp LEFT_BRACKET>;
             key-positions = <5 6>;
-            layers = <3>;
+            layers = <1>;
         };
 
         r_br {
             bindings = <&kp RIGHT_PARENTHESIS>;
             key-positions = <18 19>;
-            layers = <3>;
+            layers = <1>;
         };
 
         f_for {
             bindings = <&kp F4>;
             key-positions = <9 9 19>;
+            layers = <1>;
         };
 
         r_sq_br {
             bindings = <&kp RIGHT_BRACKET>;
             key-positions = <9 8>;
-            layers = <3>;
+            layers = <1>;
         };
     };
 

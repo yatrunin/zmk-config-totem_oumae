@@ -76,7 +76,7 @@
         ss_hs_modmorph: ss_hs_modmorph {
             compatible = "zmk,behavior-mod-morph";
             label = "SS_HS_MODMORPH";
-            bindings = <&kp M>, <&kp RIGHT_BRACKET>;
+            bindings = <&kp SQT>, <&kp BACKSLASH>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -128,10 +128,10 @@
         base {
             label = "BASE";
             bindings = <
-                 &kp Q        &kp W        &kp E         &kp R                 &kp T          &kp Y      &kp U                      &kp I         &kp O        &kp P
-                 &hrm LGUI A  &hrm LALT S  &hrm LCTRL D  &hrm LSHFT F          &kp G          &kp H      &hrm RSHFT J               &hrm RCTRL K  &hrm RALT L  &hrm RGUI SEMICOLON
-&kh_hs_tapdance  &kp Z        &kp X        &kp C         &kp V                 &kp B          &kp N      &ss_hs_modmorph            &kp COMMA     &kp DOT      &kp FSLH             &kp SQT
-                                           &lt 2 TAB     &mt LEFT_SHIFT SPACE  &lt 1 ENTER    &lt 1 ESC  &mt RIGHT_SHIFT BACKSPACE  &lt 2 DELETE
+                 &kp Q            &kp W        &kp E         &kp R                 &kp T          &kp Y      &kp U                      &kp I         &kp O        &kp P
+                 &hrm LEFT_GUI A  &hrm LALT S  &hrm LCTRL D  &hrm LSHFT F          &kp G          &kp H      &hrm RSHFT J               &hrm RCTRL K  &hrm RALT L  &hrm RGUI SEMICOLON
+&kh_hs_tapdance  &kp Z            &kp X        &kp C         &kp V                 &kp B          &kp N      &kp M                      &kp COMMA     &kp DOT      &kp FSLH             &ss_hs_modmorph
+                                               &lt 2 TAB     &mt LEFT_SHIFT SPACE  &lt 1 ENTER    &lt 1 ESC  &mt RIGHT_SHIFT BACKSPACE  &lt 2 DELETE
             >;
         };
 

@@ -73,15 +73,6 @@
     };
 
     behaviors {
-        ss_hs_modmorph: ss_hs_modmorph {
-            compatible = "zmk,behavior-mod-morph";
-            label = "SS_HS_MODMORPH";
-            bindings = <&kp SQT>, <&kp BACKSLASH>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
         kh_hs_tapdance: kh_hs_tapdance {
             compatible = "zmk,behavior-tap-dance";
             label = "KH_HS_TAPDANCE";
@@ -107,18 +98,20 @@
             bindings = <&kp KP_DOT>, <&kp SEMICOLON>, <&kp LS(SEMICOLON)>;
         };
 
-        td_sm: td_sm {
+        td_bslash: td_bslash {
             compatible = "zmk,behavior-tap-dance";
-            label = "TD_SM";
+            label = "TD_BSLASH";
             #binding-cells = <0>;
-            bindings = <&kp K_MUTE>, <&kp LC(LS(A))>;
+            tapping-term-ms = <200>;
+            bindings = <&kp SLASH>, <&kp BACKSLASH>;
         };
 
-        tdUnderScore: tdUnderScore {
+        td_tilda: td_tilda {
             compatible = "zmk,behavior-tap-dance";
-            label = "TDUNDERSCORE";
+            label = "TD_TILDA";
             #binding-cells = <0>;
-            bindings = <&kp KP_EQUAL>, <&kp LS(MINUS)>;
+            tapping-term-ms = <200>;
+            bindings = <&kp SQT>, <&kp TILDE>;
         };
     };
 
@@ -130,7 +123,7 @@
             bindings = <
                  &kp Q            &kp W        &kp E         &kp R                 &kp T          &kp Y      &kp U                      &kp I         &kp O        &kp P
                  &hrm LEFT_GUI A  &hrm LALT S  &hrm LCTRL D  &hrm LSHFT F          &kp G          &kp H      &hrm RSHFT J               &hrm RCTRL K  &hrm RALT L  &hrm RGUI SEMICOLON
-&kh_hs_tapdance  &kp Z            &kp X        &kp C         &kp V                 &kp B          &kp N      &kp M                      &kp COMMA     &kp DOT      &kp FSLH             &ss_hs_modmorph
+&kh_hs_tapdance  &kp Z            &kp X        &kp C         &kp V                 &kp B          &kp N      &kp M                      &kp COMMA     &kp DOT      &td_bslash           &td_tilda
                                                &lt 2 TAB     &mt LEFT_SHIFT SPACE  &lt 1 ENTER    &lt 1 ESC  &mt RIGHT_SHIFT BACKSPACE  &lt 2 DELETE
             >;
         };

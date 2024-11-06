@@ -111,7 +111,7 @@
             label = "TD_TILDA";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&kp SQT>, <&kp TILDE>;
+            bindings = <&kp SQT>, <&kp GRAVE>;
         };
     };
 
